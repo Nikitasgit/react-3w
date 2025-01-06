@@ -6,7 +6,7 @@ const Form = ({ setUsers, users }) => {
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value.toUpperCase() });
+    setFormData({ ...formData, [name]: value.trim().toUpperCase() });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
