@@ -1,38 +1,39 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const Form = ({ setUsers, users }) => {
-  const [formData, setFormData] = useState({
-    username: "",
-  });
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value.toUpperCase() });
+const Form = () => {
+  const [value, setValue] = useState(3);
+  const [result, setResult] = useState([]);
+  const handleValueChange = (e) => {
+    setValue(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.username.length < 2) {
-      alert("Merci d'entrer au minimum deux charactères.");
-      return;
+    const newResults = [];
+    for (let i = 1; i * value < 100; i++) {
+      newResults.push(i * value);
     }
-    const user = users.find((user) => user.username === formData.username);
-    if (user) {
-      alert("Cet utilisateur existe déjà.");
-      return;
-    }
-    setUsers((prev) => [...prev, formData]);
-    setFormData({ username: "" });
+    setResult(newResults);
   };
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <input
-        type="text"
-        value={formData.username}
-        name="username"
-        onChange={(e) => handleChange(e)}
-      />
-      <p>{formData.username}</p>
-      <input type="submit" />
-    </form>
+    <>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <select
+          value={value}
+          name="number"
+          onChange={(e) => handleValueChange(e)}
+        >
+          <option value="3">3</option>
+          <option value="5">5</option>
+          <option value="7">7</option>
+        </select>
+        <button type="submit">submit</button>
+      </form>
+      <ul>
+        {result.map((num) => (
+          <li key={num}>{num}</li>
+        ))}
+      </ul>
+    </>
   );
 };
 
