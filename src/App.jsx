@@ -1,49 +1,22 @@
-import { useState } from "react";
-import BaseNumberInput from "./components/BaseNumberInput";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Post from "./components/Post";
+import NotFound from "./components/NotFound";
+import User from "./components/User";
+import Navbar from "./components/Navbar";
 
-function App() {
-  const [decimal, setDecimal] = useState(0);
-  const [binary, setBinary] = useState(0);
-
-  const changeToDecimal = (bin) => {
-    return parseInt(bin, 2) || 0;
-  };
-  const decimalChange = (value) => {
-    setDecimal(value);
-    setBinary(changeToBinary(value));
-  };
-
-  const changeToBinary = (dec) => {
-    return (dec >>> 0).toString(2);
-  };
-  const isBinary = (value) => {
-    return value.split("").every((el) => el === "0" || el === "1");
-  };
-  const binaryChange = (value) => {
-    if (isBinary(value)) {
-      setBinary(value);
-      setDecimal(changeToDecimal(value));
-    }
-  };
+const App = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100vh",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "20px",
-      }}
-    >
-      <span>Nombre décimal:</span>
-      <BaseNumberInput onChangeBase={decimalChange} num={decimal} />
-      <span>
-        <span>Nombre binaire:</span>
-      </span>
-      <BaseNumberInput onChangeBase={binaryChange} num={binary} />
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/post/:id"} element={<Post />} />
+        <Route path={"/user/:id"} element={<User />} />
+        <Route path={"*"} element={<NotFound />} />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
