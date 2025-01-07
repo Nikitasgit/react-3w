@@ -1,4 +1,4 @@
-import { useGameContext } from "../context/userContext";
+import { useGameContext } from "../context/gameContext";
 
 const Results = () => {
   const [{ gamePlayed, win }, _] = useGameContext();

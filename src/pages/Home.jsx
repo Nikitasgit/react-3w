@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useGameContext } from "../context/userContext";
+import { useState } from "react";
+import { useGameContext } from "../context/gameContext";
 import { Link } from "react-router-dom";
 
 const Home = () => {
