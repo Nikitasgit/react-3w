@@ -1,8 +1,8 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import Post from "./components/Post";
-import NotFound from "./components/NotFound";
-import User from "./components/User";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import Results from "./pages/Results";
+import Instructions from "./pages/Instructions";
 import Navbar from "./components/Navbar";
 
 const App = () => {
@@ -11,8 +11,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path={"/"} element={<Home />} />
-        <Route path={"/post/:id"} element={<Post />} />
-        <Route path={"/user/:id"} element={<User />} />
+        <Route path={"/instructions"} element={<Instructions />} />
+        <Route path={"/results"} element={<Results />} />
         <Route path={"*"} element={<NotFound />} />
       </Routes>
     </>
