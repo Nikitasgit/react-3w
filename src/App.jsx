@@ -1,20 +1,22 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Results from "./pages/Results";
-import Instructions from "./pages/Instructions";
-import Navbar from "./components/Navbar";
+import { useSelector } from "react-redux";
+import Form from "./components/Form";
+import { useEffect } from "react";
 
 const App = () => {
+  const dragons = useSelector((state) => state.dragons);
+  useEffect(() => {
+    console.log(dragons);
+  }, [dragons]);
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path={"/"} element={<Home />} />
-        <Route path={"/instructions"} element={<Instructions />} />
-        <Route path={"/results"} element={<Results />} />
-        <Route path={"*"} element={<NotFound />} />
-      </Routes>
+      <Form />
+      <ul>
+        {dragons.length ? (
+          dragons.map((dragon) => <h3>{dragon.name}</h3>)
+        ) : (
+          <p>Pas de dragons</p>
+        )}
+      </ul>
     </>
   );
 };
