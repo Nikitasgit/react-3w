@@ -1,33 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addDragon, setDragon } from "../store/action/action-types";
+import { calcDenominations, setInput } from "../store/action/action-types";
 
 const Form = () => {
-  const { name } = useSelector((state) => state.dragon);
-  const error = useSelector((state) => state.error);
+  const [error, setError] = useState("");
+  const inputValue = useSelector((state) => state.input);
   const dispatch = useDispatch();
-  const handleChange = (value) => {
-    dispatch(setDragon(value));
+  const handleInputChange = (value) => {
+    if (/^[0-9]*$/.test(value)) {
+      setError("");
+      return dispatch(setInput(value));
+    }
+    return setError("Entrez des valeurs de type 'number'");
   };
-  const handleSubmit = (e) => {
+  const handleCalc = (e) => {
     e.preventDefault();
-    dispatch(addDragon());
+    dispatch(calcDenominations());
   };
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <h3>Entrez les charactéristiques de votre dragon: </h3>
-      <label>
-        Nom du dragon:
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => handleChange(e.target.value)}
-        />
-      </label>
+    <form onSubmit={(e) => handleCalc(e)}>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => handleInputChange(e.target.value)}
+      />
       <button role="button" type="submit">
-        Ajouter ce dragon
+        Calculer
       </button>
-      {error && <p>{error}</p>}
+      <span>{error}</span>
     </form>
   );
 };

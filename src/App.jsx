@@ -1,12 +1,16 @@
-import Form from "./components/Form";
-import List from "./components/List";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Settings from "./pages/Settings";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
-      <h1>Créez votre liste de dragons</h1>
-      <Form />
-      <List />
+      <Navbar />
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/settings"} element={<Settings />} />
+      </Routes>
     </>
   );
 };

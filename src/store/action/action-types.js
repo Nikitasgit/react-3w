@@ -1,31 +1,23 @@
 import {
-  ADD_DRAGON,
-  DELETE_DRAGON,
-  SET_DRAGON,
-  SORT_RANDOM_DRAGON,
-} from "../constants/action";
+  CALC_DENOMINATION,
+  SET_DENOMINATION,
+  SET_INPUT,
+} from "../constants/denomination";
 
-export const addDragon = () => {
+export const setInput = (payload) => {
   return {
-    type: ADD_DRAGON,
-  };
-};
-
-export const setDragon = (payload) => {
-  return {
+    type: SET_INPUT,
     payload,
-    type: SET_DRAGON,
   };
 };
-
-export const deleteDragon = (payload) => {
+export const calcDenominations = () => {
   return {
+    type: CALC_DENOMINATION,
+  };
+};
+export const setDenomination = (payload) => {
+  return {
+    type: SET_DENOMINATION,
     payload,
-    type: DELETE_DRAGON,
-  };
-};
-export const sortRandomDragon = () => {
-  return {
-    type: SORT_RANDOM_DRAGON,
   };
 };

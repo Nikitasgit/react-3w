@@ -1,19 +1,51 @@
-Vous allez utiliser react-router-dom et useReducer pour créer une petite application
+Challenge Denomination
+Vous allez créer une petite application qui permet de saisir un montant donné et qui fournit la monnaie en token(s) que l'on peut rendre par rapport à ce montant.
 
-Contexte
-Vous créez un bouton qui lance trois dés et compte le nombre de fois que l'on obtient un brelan de 6, brelan = trois dés identiques; à chaque fois que l'on relance l'expérience on ré-initialise le compteur.
+Vous allez créer une petite application qui permet de saisir un montant donné et qui fournit la monnaie en token(s) que l'on peut rendre par rapport à ce montant.
 
-L'application possède trois pages : la page Home qui permet de lancer l'expérience, une page description qui décrit le jeu et une page permettant de consulter les statistiques.
+const denominations = [1, 5, 10, 20, 50, 100]
+Vous devrez développer une petite interface permettant de saisir le montant et de rendre les dénominations. Vous utiliserez Redux pour la gestion de l'algorithmique et du store.
 
-Page home du jeu
-Sur cette page vous avez un bouton pour lancer les dés aux nombres de 3. Un autre champ du formulaire permet de définir le nombre de fois que vous répétez l'expérience. Pour consuler les résultats un lien cliquable permet de voir la page des statistiques. Vous utiliserez les paramètres de react-router-dom de route pour afficher les résultats.
+Wireframe 1 saisir le montant
+[ 253 ]
 
-[Jeu] [Description]
+[ Dénomination ]
 
-Nombre d'expérience : [100]
+[ Reset ]
 
-[Lancer]
+Dénomination 100 unité(s) : 2
 
-[Resultat]
-Partie facultative
-Vous pouvez ajouter des combinaisons supplémentaires du jeu Yam, si vous avez le temps.
+Dénomination 50 unité(s) : 1
+
+Dénomination 1 unité(s) : 3
+
+Partie 2 (facultative)
+Donnez la possibilité de changer de dénomination. Créez une page principale avec une dénomination par défaut et une page permettant de la re-définir en fonction d'une liste pré-définie de dénominations.
+
+Page principale
+
+[ Home ] [ Denomination ]
+
+[ 253 ]
+
+[ Dénomination ]
+
+[ Reset ]
+
+Dénomination 100 unité(s) : 2
+
+Dénomination 50 unité(s) : 1
+
+Dénomination 1 unité(s) : 3
+
+Page pour changer de dénomination
+
+[ Home ] [ Denomination ]
+
+Choisissez une dénomination
+
+[X] Dénomination 1, 5, 10, 20, 50, 100
+
+[ ] Dénomination 1, 2, 5, 10, 20, 30, 50
+
+[ ] Dénomination 1, 10, 20, 30, 40, 50, 100

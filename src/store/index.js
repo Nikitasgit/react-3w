@@ -1,6 +1,6 @@
 import { legacy_createStore } from "redux";
-import dragonReducer from "./reducer/dragonReducer";
+import denominationReducer from "./reducer/denominationReducer";
 
-const store = legacy_createStore(dragonReducer);
+const store = legacy_createStore(denominationReducer);
 
 export default store;
