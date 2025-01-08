@@ -15,11 +15,15 @@ const Form = () => {
   };
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => handleChange(e.target.value)}
-      />
+      <h3>Entrez les charactéristiques de votre dragon: </h3>
+      <label>
+        Nom du dragon:
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => handleChange(e.target.value)}
+        />
+      </label>
       <button role="button" type="submit">
         Ajouter ce dragon
       </button>

@@ -1,4 +1,9 @@
-import { ADD_DRAGON, SET_DRAGON } from "../constants/action";
+import {
+  ADD_DRAGON,
+  DELETE_DRAGON,
+  SET_DRAGON,
+  SORT_RANDOM_DRAGON,
+} from "../constants/action";
 
 export const addDragon = () => {
   return {
@@ -10,5 +15,17 @@ export const setDragon = (payload) => {
   return {
     payload,
     type: SET_DRAGON,
+  };
+};
+
+export const deleteDragon = (payload) => {
+  return {
+    payload,
+    type: DELETE_DRAGON,
+  };
+};
+export const sortRandomDragon = () => {
+  return {
+    type: SORT_RANDOM_DRAGON,
   };
 };

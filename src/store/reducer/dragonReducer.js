@@ -1,4 +1,9 @@
-import { ADD_DRAGON, SET_DRAGON } from "../constants/action";
+import {
+  ADD_DRAGON,
+  DELETE_DRAGON,
+  SET_DRAGON,
+  SORT_RANDOM_DRAGON,
+} from "../constants/action";
 
 const initialState = {
   dragons: [],
@@ -38,6 +43,7 @@ const dragonReducer = (state = initialState, action) => {
         ...state,
         dragons: state.dragons.concat([{ ...state.dragon, id: state.id + 1 }]),
         id: state.id + 1,
+        dragon: { ...state.dragon, name: "" },
         error: "",
       };
     case SET_DRAGON:
@@ -46,6 +52,16 @@ const dragonReducer = (state = initialState, action) => {
         dragon: {
           name: action.payload,
         },
+      };
+    case DELETE_DRAGON:
+      return {
+        ...state,
+        dragons: state.dragons.filter((dragon) => dragon.id !== action.payload),
+      };
+    case SORT_RANDOM_DRAGON:
+      return {
+        ...state,
+        dragons: [...state.dragons].sort(() => Math.random() - 0.5),
       };
     default:
       return state;

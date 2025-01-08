@@ -1,22 +1,12 @@
-import { useSelector } from "react-redux";
 import Form from "./components/Form";
-import { useEffect } from "react";
+import List from "./components/List";
 
 const App = () => {
-  const dragons = useSelector((state) => state.dragons);
-  useEffect(() => {
-    console.log(dragons);
-  }, [dragons]);
   return (
     <>
+      <h1>Créez votre liste de dragons</h1>
       <Form />
-      <ul>
-        {dragons.length ? (
-          dragons.map((dragon) => <h3>{dragon.name}</h3>)
-        ) : (
-          <p>Pas de dragons</p>
-        )}
-      </ul>
+      <List />
     </>
   );
 };
