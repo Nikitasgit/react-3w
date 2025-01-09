@@ -1,9 +1,0 @@
-//DRAGONREDUCER
-export const ADD_DRAGON = "ADD_DRAGON";
-export const SET_DRAGON = "SET_DRAGON";
-export const DELETE_DRAGON = "DELETE_DRAGON";
-export const SORT_RANDOM_DRAGON = "SORT_RANDOM_DRAGON";
-
-//LOGSREDUCER
-export const ADD_LOG = "LOG/ADD";
-export const DELETE_ALL_LOGS = "LOG/DELETE_ALL";

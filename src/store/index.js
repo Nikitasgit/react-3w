@@ -1,14 +1,9 @@
-import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
-import dragonReducer from "./reducer/dragonReducer";
-import logReducer from "./reducer/logReducer";
-import { logMiddleware } from "./middleware/logMiddleware";
-
-const store = legacy_createStore(
-  combineReducers({
-    logReducer,
-    dragonReducer,
-  }),
-  applyMiddleware(logMiddleware)
-);
+import { configureStore } from "@reduxjs/toolkit";
+import todoReducer from "../store/slices/todoSlice.js";
+const store = configureStore({
+  reducer: {
+    todoReducer,
+  },
+});
 
 export default store;
