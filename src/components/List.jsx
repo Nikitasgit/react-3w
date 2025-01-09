@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteDragon, sortRandomDragon } from "../store/action/action-types";
 
 const List = () => {
-  const dragons = useSelector((state) => state.dragons);
+  const dragons = useSelector((state) => state.dragonReducer.dragons);
   const dispatch = useDispatch();
   const handleDelete = (id) => {
     dispatch(deleteDragon(id));

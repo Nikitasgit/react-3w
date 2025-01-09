@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addDragon, setDragon } from "../store/action/action-types";
 
 const Form = () => {
-  const { name } = useSelector((state) => state.dragon);
-  const error = useSelector((state) => state.error);
+  const { name } = useSelector((state) => state.dragonReducer.dragon);
+  const error = useSelector((state) => state.dragonReducer.error);
   const dispatch = useDispatch();
   const handleChange = (value) => {
     dispatch(setDragon(value));
